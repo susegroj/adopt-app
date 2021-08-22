@@ -1,0 +1,231 @@
+/* stylelint-disable property-no-vendor-prefix, max-nesting-depth  */
+@use '@styles/breakpoints' as size;
+
+.conversation {
+  align-items: center;
+  animation: fade-in 0.5s ease;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .mask {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .conv-wrapper {
+    background: var(--pink);
+    
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+     
+    &-header {
+      align-items: center;
+      background: var(--white);
+      box-shadow: 0 1px 5px rgb(0 0 0 / 20%);
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      padding: 2rem 2rem 1rem;
+      position: relative;
+        
+    
+      .back-arrow,
+      .close-icon {
+        color: var(--white);
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+        font-size: 2.5rem;
+        left: 1rem;
+        position: absolute;
+        top: 1.5rem;
+      }
+
+      .close-icon {
+        display: none;
+      }
+    
+      .avatar {
+        background: var(--aqua);
+        border: 3px solid var(--aqua);
+        border-radius: 50%;
+        height: 64px;
+        overflow: hidden;
+        width: 64px;
+    
+        img {
+          background: var(--white);
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+    
+    &-chat {
+      display: flex;
+      flex-flow: column;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      gap: 1rem;
+      margin: 0 0 4rem;
+      overflow: scroll;
+      padding: 1rem;
+    
+      .text-box {
+        display: flex;
+        flex-flow: column;
+        gap: 0.2rem;
+          
+        .date {
+          font-size: 0.8rem;
+          padding: 0 0.2rem;
+        }
+
+        .text {
+          border-radius: 1rem;
+          max-width: 80%;
+          padding: 1rem;
+          word-break: break-word;
+        }
+          
+        &.out {
+          text-align: right;
+
+          .text {
+            align-self: flex-end;
+            background: var(--white);
+          }
+        }
+    
+        &.in {
+          text-align: left;
+
+          .text {
+            align-self: flex-start;
+            background: var(--gray);
+            color: var(--white);
+          }
+        }
+          
+      }
+    }
+    
+    .send-msg {
+      align-items: center;
+      background: var(--pink);
+      bottom: 0;
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      position: fixed;
+      width: 100%;
+      
+        
+      .textarea {
+        background: var(--white);
+        border-radius: 1rem;
+      
+        border-style: none;
+        cursor: text;
+        display: flex;
+        flex: 1 1 auto;
+        flex-flow: column nowrap;
+        max-height: 95px;
+        overflow: hidden;
+          
+        overflow: hidden;
+        padding: 1rem 1.5rem;
+      }
+
+      .textarea[contenteditable]:empty::before {
+        color: var(--gray);
+        content: 'Placeholder still possible';
+      }
+    
+      .send-btn {
+        align-items: center;
+        align-self: flex-end;
+        background: var(--white);
+        border-radius: 50%;
+        border-style: none;
+        display: flex;
+        flex-shrink: 0;
+        height: 50px;
+        justify-content: center;
+        width: 50px;
+    
+        &.disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+    
+        .icon {
+          font-size: 1.5rem;
+          padding: 0 0 0 5px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: size.$mobile) {
+  .conversation {
+    animation: none;
+
+    .conv-wrapper {
+      animation: in-scale 0.3s ease;
+      border-radius: 1rem;
+      box-shadow: 1px 1px 5px rgb(0 0 0 / 30%);
+
+      height: 80vh;
+      max-height: 700px;
+      max-width: 500px;
+      min-width: 400px;
+
+      overflow: hidden;
+      position: relative;
+      width: 50vw;
+  
+      &-header {
+        .back-arrow {
+          display: none;
+        }
+
+        .close-icon {
+          display: block;
+          left: unset;
+          right: 1rem;
+        }
+      }
+
+      .send-msg {
+        position: absolute;
+      }
+    }
+  }
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(120vh);
+  }
+}

@@ -1,0 +1,80 @@
+@use '@styles/breakpoints' as size;
+
+.menu {
+  background: var(--white);
+  bottom: 0;
+  display: flex;
+  left: 0;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+
+  .app-title {
+    display: none;
+  }
+  
+  .options {
+    cursor: pointer;
+    display: flex;
+    flex-grow: 1;
+    gap: 0.5rem;
+    justify-content: space-between;
+    list-style: none;
+
+    a {
+      text-decoration: none;
+    }
+
+    .option {
+      align-items: center;
+      border-radius: 5rem;
+      color: var(--black);
+      
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+
+
+      span {
+        display: none;
+        font-size: clamp(0.7em, 2vw, 1rem);
+      }
+
+      .icon {
+        font-size: 1.5rem;
+      }
+      
+      &.active {
+        background: var(--black);
+        color: var(--white);
+
+        .icon {
+          font-size: 1.3rem;
+        }
+
+        span {
+          display: block;
+        }
+      }
+    }
+    
+  }
+}
+
+@media screen and (min-width: size.$mobile) {
+  .menu {
+    align-items: center;
+    bottom: unset;
+    top: 0;
+
+    .app-title {
+      display: block;
+      padding: 0 1rem;
+    }
+
+    .options {
+      justify-content: flex-end;
+    }
+  }
+}

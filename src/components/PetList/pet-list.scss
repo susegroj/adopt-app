@@ -1,0 +1,69 @@
+@use '@styles/breakpoints' as size;
+
+.pet-list {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(17rem, auto);
+  grid-gap: 1rem;
+  grid-row-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(8.5rem, 100%), 1fr));
+  padding: 0 0 3.5rem;
+
+  .pet-card {
+    cursor: pointer;
+
+    &:nth-child(even) {
+      margin: 0.5rem 0 0;
+    }
+
+    &:nth-child(odd) {
+      margin: 0 0 0.5rem;
+    }
+
+    figure {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .data {
+        background: linear-gradient(0deg, var(--black), transparent);
+        bottom: 0;
+        color: var(--white);
+        display: flex;
+        flex-flow: column-reverse;
+        gap: 0.2rem;
+        height: 50%;
+        left: 0;
+        padding: 1rem;
+        position: absolute;
+        width: 100%;
+        
+        .name {
+          font-size: clamp(0.8rem, 2vw, 1rem);
+          font-weight: bold;
+        }
+
+        .race {
+          font-size: clamp(0.7rem, 2vw, 1rem);
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: size.$mobile) {
+  .pet-list {
+    grid-auto-rows: minmax(22rem, auto);
+    grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr));
+  }
+}

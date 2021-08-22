@@ -1,0 +1,29 @@
+@use '@styles/breakpoints' as size;
+
+$footer-height: 272px;
+
+.app {
+  background: var(--pink);
+}
+
+.page-content {
+  background: var(--pink);
+  flex-grow: 1;
+  height: 100%;
+  min-height: 100%;
+  overflow: auto;
+  padding: 2rem 1rem 4rem;
+  width: 100%;
+}
+
+@media screen and (min-width:size.$mobile) {
+  .page-content {
+    padding: 4.5rem 0 0;
+
+    // add this attribute in every page container
+    div[data-page] {
+      min-height: calc(100% - #{$footer-height});
+      padding: 2rem;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.home {
+  min-height: 100%;
+  width: 100%;
+  
+  h1 {
+    padding: 0 0 1.5rem;
+  }
+  
+  .categories {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0 2rem;
+    
+    .category {
+      align-items: center;
+      background: var(--black);
+      border-radius: 0.5rem;
+      color: var(--white);
+      display: flex;
+      font-size: clamp(0.8rem, 2vw, 1.1rem);
+      gap: 0.5rem;
+      justify-content: center;
+      opacity: 0.6;
+      overflow: hidden;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: 0.3s all ease;
+
+      &:hover {
+        opacity: 1;
+      }
+      
+      input[type='radio'] {
+        all: unset;
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      figure {
+        background: var(--aqua);
+        border-radius: 50%;
+        height: 45px;
+        overflow: hidden;
+        width: 45px;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+}

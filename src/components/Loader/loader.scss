@@ -1,0 +1,45 @@
+$footer-height: 272px;
+
+.loader {
+  align-content: center;
+  align-items: center;
+  animation: inning 0.5s ease;
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  gap: 1rem;
+  justify-content: center;
+  min-height: calc(100% - #{$footer-height});
+  width: 100%;
+
+  &-img {
+    animation: loader 3s ease infinite;
+    animation-delay: 1s;
+    width: 100%;
+
+    &.m {
+      max-width: 200px;
+      width: 50%;
+    }
+  }
+
+}
+
+@keyframes inning {
+  from {
+    transform: scale(0);
+  }
+}
+@keyframes loader {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,63 @@
+.messages {
+  min-height: 100%;
+  width: 100%;
+
+  .inbox {
+    padding: 2rem 0 3rem;
+
+    .msg {
+      align-items: center;
+      background: var(--white);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem;
+
+      .avatar,
+      .chevron {
+        flex-shrink: 0;
+      }
+
+      .avatar {
+        background: var(--white);
+        border: 3px solid var(--aqua);
+        border-radius: 50%;
+        height: 50px;
+        overflow: hidden;
+        width: 50px;
+  
+        img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .data {
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        gap: 0.2rem;
+        justify-content: space-between;
+        
+        .name {
+          font-size: clamp(0.8rem, 2vw, 1rem);
+          font-weight: bold;
+        }
+
+        .date {
+          font-size: clamp(0.6rem, 2vw, 0.8rem);
+        }
+
+        .comment {
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          font-size: clamp(0.9rem, 2vw, 1rem);
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

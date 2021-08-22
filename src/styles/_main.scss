@@ -1,0 +1,46 @@
+@use './fonts';
+@use './colors';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito', 'Montserrat Alternates', sans-serif, system-ui;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body,
+#root,
+.app {
+  background: var(--pink);
+  color: var(--black);
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+
+[type='button'],
+[type='submit'],
+[role='button'] {
+  border-style: none;
+
+  outline: none;;
+}
+
+textarea,
+[contentEditable='true'] {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: bold;
+}
